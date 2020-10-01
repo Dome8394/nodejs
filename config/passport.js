@@ -2,6 +2,12 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
 const User = require('../models/Users')
 
+/**
+ * Creates a new authentication strategy (in this case Google auth).
+ * A strategy receives {clientID}, {clientSecret}, {callBackUrl}. 
+ * The clientId and secret are create at: https://console.cloud.google.com/
+ * @param {} passport 
+ */
 module.exports = function (passport) {
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
